@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reparateurs",
+  "info": {
+    "singularName": "reparateur",
+    "pluralName": "reparateurs",
+    "displayName": "Reparateur",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "login": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "raisonsociale": {
+      "type": "string"
+    },
+    "codePrestataire": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "wilaya": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wilaya.wilaya"
+    },
+    "commune_reparateur": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::commune-reparateur.commune-reparateur"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "NIF": {
+      "type": "string"
+    },
+    "RIB": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "codePrestataire",
+      "required": true
+    },
+    "dureeMaximalReponse": {
+      "type": "string"
+    },
+    "NumeroRegistreComerce": {
+      "type": "string"
+    },
+    "regimeFiscal": {
+      "type": "string"
+    },
+    "Ristourne": {
+      "type": "string"
+    },
+    "Taux": {
+      "type": "string"
+    },
+    "modeDePaiement": {
+      "type": "string"
+    },
+    "Etat": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commune_reparateurs",
+  "info": {
+    "singularName": "commune-reparateur",
+    "pluralName": "commune-reparateurs",
+    "displayName": "Commune Reparateur",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nomCommune": {
+      "type": "string"
+    },
+    "wilaya": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wilaya.wilaya",
+      "inversedBy": "commune_reparateurs"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wilayas",
+  "info": {
+    "singularName": "wilaya",
+    "pluralName": "wilayas",
+    "displayName": "Wilaya",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nomWilaya": {
+      "type": "string"
+    },
+    "codeWilaya": {
+      "type": "string"
+    },
+    "commune_reparateurs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commune-reparateur.commune-reparateur",
+      "mappedBy": "wilaya"
+    }
+  }
+}
