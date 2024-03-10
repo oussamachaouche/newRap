@@ -17,6 +17,7 @@ module.exports = createCoreController('api::wilaya.wilaya',
    * */
 
 
+
   async create(ctx) {
     // some logic here
  
@@ -24,20 +25,7 @@ module.exports = createCoreController('api::wilaya.wilaya',
    // ctx.request.body.data.codeWilaya = String(parseInt(ctx.request.body.data.codeWilaya) + 2);
 
     const response = await super.create(ctx);
-    // some more logic
- 
-//     let user = await strapi.plugins['users-permissions'].services.user.add({
-//         blocked: false,
-//         confirmed: true, 
-//         username: 'new_username',
-//         email: 'test@testemail.com',
-//         password: 'secretpassword', //will be hashed automatically
-//         provider: 'local', //provider
-//         created_by: 1, //user admin id
-//         updated_by: 1, //user admin id
-//         role: 1 //role id
-//     });
-//  console.log("user"+user);
+
 
     return response;
   },
@@ -45,6 +33,9 @@ module.exports = createCoreController('api::wilaya.wilaya',
 
   async find(ctx) {
 
+
+
+    
     
     // your custom logic for modifying the input
     ctx.query = { ...ctx.query, locale: "en" }; // force ctx.query.locale to 'en' regardless of what was requested
@@ -52,6 +43,7 @@ module.exports = createCoreController('api::wilaya.wilaya',
     // Call the default parent controller action
     const result = await super.find(ctx);
 
+    
     // your custom logic for modifying the output
     result.meta.date = Date.now(); // change the date that is returned
 

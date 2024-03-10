@@ -412,7 +412,7 @@ export interface ApiReparateurReparateur extends Schema.CollectionType {
   };
   attributes: {
     login: Attribute.String & Attribute.Required & Attribute.Unique;
-    raisonsociale: Attribute.String;
+    raisonsociale: Attribute.String & Attribute.Required & Attribute.Unique;
     codePrestataire: Attribute.String & Attribute.Required & Attribute.Unique;
     wilaya: Attribute.Relation<
       'api::reparateur.reparateur',
@@ -443,6 +443,9 @@ export interface ApiReparateurReparateur extends Schema.CollectionType {
     Taux: Attribute.String;
     modeDePaiement: Attribute.String;
     Etat: Attribute.String;
+    nom: Attribute.String;
+    prenom: Attribute.String;
+    adresseDuGarage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

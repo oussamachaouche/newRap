@@ -18,7 +18,9 @@
       "unique": true
     },
     "raisonsociale": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "codePrestataire": {
       "type": "string",
@@ -77,6 +79,15 @@
       "type": "string"
     },
     "Etat": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "adresseDuGarage": {
       "type": "string"
     }
   }
