@@ -52,15 +52,17 @@ module.exports = createCoreController('api::reparateur.reparateur',
   
       // Assign the generated username to the body
       body.data.login = userName;
-      const erreurs = {};
+      const erreurs = {err:{}};
       // Create the entity and return the response
       let testRaisonSociale = reparateurs.some(reparateur => reparateur.raisonsociale === raisonsociale);
       let testCodePrestataire = reparateurs.some(reparateur => reparateur.codePrestataire === codePrestataire);
-      if (testRaisonSociale) return erreur("Un réparateur existe déjà avec cette raison sociale","raisonSociale");
-      if (testCodePrestataire) return erreur("Un réparateur existe déjà avec ce code prestataire","codePrestataire");
+      // if (testRaisonSociale) return erreur("Un réparateur existe déjà avec cette raison sociale","raisonSociale");
+      //if (testRaisonSociale) return erreur("Un réparateur existe déjà avec cette raison sociale","raisonSociale");
+      if (testRaisonSociale) return ctx.badRequest('Un réparateur existe déjà avec cette raison sociale');
+      if (testCodePrestataire) return ctx.badRequest('Un réparateur existe déjà avec ce code prestataire');
       
           function erreur(message,champs){
-            erreurs[champs] = message;
+            erreurs.err[champs] = message;
             return erreurs;
           }
  // Début de la transaction
@@ -72,7 +74,7 @@ let user = await strapi.plugins['users-permissions'].services.user.add({
   confirmed: true, 
   username: userName,
   email: email,
-  password: 'secretpassword', //will be hashed automatically
+  password: password, //will be hashed automatically
   provider: 'local', //provider
   created_by: 1, //user admin id
   updated_by: 1, //user admin id

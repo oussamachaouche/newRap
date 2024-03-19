@@ -103,6 +103,11 @@ module.exports = createCoreController('api::wilaya.wilaya',
   // },
 
 
+
+
+
+
+
   /**
    * Example 3: Writing your own new controller function
    * If you need to create some new action that does not match one of the pre-configured Strapi methods,
