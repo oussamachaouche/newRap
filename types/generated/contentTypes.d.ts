@@ -381,6 +381,7 @@ export interface ApiCommuneReparateurCommuneReparateur
       'manyToOne',
       'api::wilaya.wilaya'
     >;
+    sdfsfd: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -408,7 +409,7 @@ export interface ApiReparateurReparateur extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     login: Attribute.String & Attribute.Required & Attribute.Unique;
@@ -428,12 +429,6 @@ export interface ApiReparateurReparateur extends Schema.CollectionType {
     email: Attribute.Email;
     NIF: Attribute.String;
     RIB: Attribute.String;
-    users_permissions_user: Attribute.Relation<
-      'api::reparateur.reparateur',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    > &
-      Attribute.Unique;
     slug: Attribute.UID<'api::reparateur.reparateur', 'codePrestataire'> &
       Attribute.Required;
     dureeMaximalReponse: Attribute.String;
@@ -448,7 +443,6 @@ export interface ApiReparateurReparateur extends Schema.CollectionType {
     adresseDuGarage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::reparateur.reparateur',
       'oneToOne',
@@ -477,7 +471,7 @@ export interface ApiWilayaWilaya extends Schema.CollectionType {
   };
   attributes: {
     nomWilaya: Attribute.String;
-    codeWilaya: Attribute.String;
+    codeWilaya: Attribute.Integer & Attribute.Unique;
     commune_reparateurs: Attribute.Relation<
       'api::wilaya.wilaya',
       'oneToMany',

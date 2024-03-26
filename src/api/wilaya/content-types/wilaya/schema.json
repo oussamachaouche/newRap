@@ -16,7 +16,8 @@
       "type": "string"
     },
     "codeWilaya": {
-      "type": "string"
+      "type": "integer",
+      "unique": true
     },
     "commune_reparateurs": {
       "type": "relation",

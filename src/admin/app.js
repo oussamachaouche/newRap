@@ -1,7 +1,25 @@
+
+import favicon from "./extensions/favicon.png";
+
 const config = {
+  // head: {
+  //   favicon: favicon,
+  // },
+  // menu: {
+  //   logo: favicon,
+  // },
+
+  translations: {
+    fr: {
+     
+      // Translate a plugin's key/value pair by adding the plugin's name as a prefix
+      // In this case, we translate the "plugin.name" key of plugin "content-type-builder"
+      "app.components.LeftMenu.navbrand.title": "IPA",
+    },
+  },
   locales: [
-    // 'ar',
-    // 'fr',
+     'ar',
+    'fr',
     // 'cs',
     // 'de',
     // 'dk',
@@ -27,6 +45,7 @@ const config = {
     // 'zh-Hans',
     // 'zh',
   ],
+ 
 };
 
 const bootstrap = (app) => {

@@ -21,7 +21,7 @@ module.exports = createCoreController('api::reparateur.reparateur',
     try {
       const { body } = ctx.request;
       const { nom, prenom,email,raisonsociale, codePrestataire } = body.data || {}; // Destructure nom and prenom from body.data
-  
+  console.log("<<<<<<<<<<<<<<<<<<<<<<<<<rest<<<<<<<");
       // Generate random password
       const generateRandomPassword = (length) => {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -61,27 +61,24 @@ module.exports = createCoreController('api::reparateur.reparateur',
       if (testRaisonSociale) return ctx.badRequest('Un réparateur existe déjà avec cette raison sociale');
       if (testCodePrestataire) return ctx.badRequest('Un réparateur existe déjà avec ce code prestataire');
       
-          function erreur(message,champs){
-            erreurs.err[champs] = message;
-            return erreurs;
-          }
+    
  // Début de la transaction
 
 
-// create a user  
-let user = await strapi.plugins['users-permissions'].services.user.add({
-  blocked: false,
-  confirmed: true, 
-  username: userName,
-  email: email,
-  password: password, //will be hashed automatically
-  provider: 'local', //provider
-  created_by: 1, //user admin id
-  updated_by: 1, //user admin id
-  role: 3 //role id
-});
+// create a user  **************************************
+// let user = await strapi.plugins['users-permissions'].services.user.add({
+//   blocked: false,
+//   confirmed: true, 
+//   username: userName,
+//   email: email,
+//   password: password, //will be hashed automatically
+//   provider: 'local', //provider
+//   created_by: 1, //user admin id
+//   updated_by: 1, //user admin id
+//   role: 3 //role id
+// });
 
-body.data.users_permissions_user = user.id;
+//body.data.users_permissions_user = user.id;
 body.data.slug = body.data.codePrestataire;
 
 const response = await super.create(ctx);

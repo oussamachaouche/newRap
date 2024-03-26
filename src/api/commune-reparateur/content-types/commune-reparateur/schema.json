@@ -20,6 +20,9 @@
       "relation": "manyToOne",
       "target": "api::wilaya.wilaya",
       "inversedBy": "commune_reparateurs"
+    },
+    "sdfsfd": {
+      "type": "string"
     }
   }
 }

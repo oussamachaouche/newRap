@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -48,12 +48,6 @@
     },
     "RIB": {
       "type": "string"
-    },
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "unique": true
     },
     "slug": {
       "type": "uid",
